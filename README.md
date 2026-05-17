@@ -1,7 +1,7 @@
-# compact-vec
+# compactvec
 
-[![Crates.io](https://img.shields.io/crates/v/compact-vec)](https://crates.io/crates/compact-vec)
-[![Docs.rs](https://docs.rs/compact-vec/badge.svg)](https://docs.rs/compact-vec)
+[![Crates.io](https://img.shields.io/crates/v/compactvec)](https://crates.io/crates/compactvec)
+[![Docs.rs](https://docs.rs/compactvec/badge.svg)](https://docs.rs/compactvec)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 A `Vec<u32>`-compatible container that stores unsigned integers in the **smallest possible byte width**, automatically upgrading in place when a new value demands more space.
@@ -19,9 +19,9 @@ A `Vec<u32>`-compatible container that stores unsigned integers in the **smalles
 | 0 – 16 777 215    | `u24`   | 3               | **25 %** |
 | 0 – 4 294 967 295 | `u32`   | 4               | —        |
 
-A vector of one million token-IDs that happen to stay below 256 consumes **1 MB** instead of **4 MB**. That is not just a space win — it is a cache win too.
+A vector of one million token-IDs that happen to stay below 256 consumes **1 MB** instead of **4 MB**.
 
-The unusual 24-bit tier means that data up to ~16 M (common in file offsets, colour values, and medium-sized indices) still saves 25 % over the naïve approach, rather than jumping straight to full u32 cost.
+The unusual 24-bit tier means that data up to ~16 M (common in file offsets, colour values, and medium-sized indices) still saves 25 % over the naive approach, rather than jumping straight to full u32 cost.
 
 ---
 
@@ -29,13 +29,13 @@ The unusual 24-bit tier means that data up to ~16 M (common in file offsets, col
 
 ```toml
 [dependencies]
-compact-vec = "0.1"
+compactvec = "0.1"
 # Optional: serde support
-# compact-vec = { version = "0.1", features = ["serde"] }
+# compactvec = { version = "0.1", features = ["serde"] }
 ```
 
 ```rust
-use compact_vec::CompactVec;
+use compactvec::CompactVec;
 
 let mut cv = CompactVec::new();
 
