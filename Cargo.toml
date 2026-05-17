@@ -1,7 +1,23 @@
 [package]
-name = "compact_vec"
+name = "compactvec"
+authors = ["shitohana <kyudytskiy@gmail.com>"]
+description = "Vec<u32> that auto-selects 1/2/3/4-byte storage per element, upgrading in place when values grow"
+readme = "README.md"
+repository = "https://github.com/shitohana/compact_vec"
+license = "MIT"
 version = "0.1.0"
 edition = "2024"
+categories = [
+    "data-structures",
+    "memory-management",
+]
+keywords = [
+    "vec",
+    "compact",
+    "memory",
+    "integer",
+    "collection",
+]
 
 [dependencies]
 serde = { version = "1.0.228", optional = true }
